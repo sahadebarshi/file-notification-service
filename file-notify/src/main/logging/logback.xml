@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Define log level for the root logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- Define a console appender to output logs to the console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{dd-MM-yyyy HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Define a file appender that writes logs to a file -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>fileLogs/app.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configure a logger with a specific level for certain packages -->
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="com.example" level="DEBUG"/>
+
+</configuration>
